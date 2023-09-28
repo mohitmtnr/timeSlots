@@ -1,38 +1,82 @@
 .App {
   text-align: center;
+  margin: 10px auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.flex-space-between {
+  width: 96vw;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-center {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-bottom: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+.time-zone {
+  width: 100vw;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.time-zone select {
+  width: 96vw;
+  padding: 10px;
+  border: 1px solid rgb(80, 80, 80);
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bolder;
+  margin: auto 2px;
+}
+
+.cal-table {
+  width: 96vw;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.cal-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: left;
+  width: 11%;
+  height: 16vh;
+  background-color: #cdcdcd;
+  color: #990008;
+  float: left;
+}
+
+.cal-right {
+  display: block;
+  width: 88%;
+  float: right;
+  height: 10vh;
+  text-align: left;
+}
+
+.cal-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 16vh;
+}
+
+.cal-day-time {
+  margin-left: 25px;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.5);
+}
+
+button {
+  cursor: pointer;
+  font-weight: bolder;
+  border: none;
+  background-color: transparent;
+  color: #0000ff;
 }

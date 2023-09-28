@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import WeekToggleNavBar from "./components/WeekToggleNavBar";
+import TimeZone from "./components/TimeZone";
+import Calendar from "./components/Calendar";
+import { createContext, useState } from "react";
+export const timeContext = createContext();
+export const weekContext = createContext();
 
 function App() {
+  const [timeZone, setTimeZone] = useState("UTC-0");
+  const [week, setWeek] = useState(0);
+
+  const handleOnChange = (event) => {
+    setTimeZone(event.target.value);
+  };
+
+  const handleWeekChange = (value) => {
+    setWeek((previous) => previous + value);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <timeContext.Provider value={{ timeZone, handleOnChange }}>
+        <weekContext.Provider value={{ week, handleWeekChange }}>
+          <div className="App ">
+            <WeekToggleNavBar />
+            <TimeZone />
+            <Calendar />
+          </div>
+        </weekContext.Provider>
+      </timeContext.Provider>
+    </>
   );
 }
 
